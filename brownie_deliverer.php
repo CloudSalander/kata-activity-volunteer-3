@@ -22,16 +22,23 @@ function checkOptionInput(int $activities_count,string $option): bool {
 	return is_numeric($option) && $option > 0 && $option <= $activities_count;
 }
 
+function checkActivity() {
+	if(isset($_POST['activity']) && $_POST['activity'] != "") {
+		return ucfirst($_POST['activity']);
+	}
+}
+
 
 $students = LoadStudents();
-showOptions($activities);
-$activity_index = readline("Hei! Quina activitat vols assignar?(Introdueix la opció numèrica)");
+//showOptions($activities);
 
-if(checkOptionInput(count($activities),$activity_index)) {
+$activity = checkActivity();
+
+if($activity) {
 	$student_index = array_rand($students);
 	$student_name = $students[$student_index]['nom'];
 	$student_surname = $students[$student_index]['cognom'];
-	echo "Li toca a ".$student_name." ".$student_surname." fer ".$activities[($activity_index)-1]." felicitats!!"; 
+	echo "Li toca a ".$student_name." ".$student_surname." fer ".$activity." felicitats!!"; 
 }
 
 ?>
