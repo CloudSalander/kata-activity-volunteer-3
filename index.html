@@ -1,16 +1,28 @@
 </html>
 	<header>
+		<meta charset="UTF-8">
+  		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  		<script src="https://cdn.tailwindcss.com"></script>
+  		<link rel="stylesheet" href="styles.css">
 		<title>Brownie deliverer</title>
 	</header>
 	<body>
-		<h1>Activity Deliverer!</h1>
-		<form action="brownie_deliverer.php" method="POST">
-			<select id="activity_selector" name="activity">
-				<option value="masterclass">Masterclass</option>
-				<option value="shortcut">Shortcut</option>
-			</select>
-			<input type="submit" value="Good luck!">
-		</form>
+		<div class="container flex my-20">
+			<div id="main-title">
+				<h1>Activity Deliverer!</h1>
+			</div>
+			<div id="form">
+				<form action="brownie_deliverer.php" method="POST">
+					<select id="activity_selector" name="activity">
+						<option value="masterclass">Masterclass</option>
+						<option value="weekly shortcut">Shortcut</option>
+					</select>
+					<input class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" type="submit" value="Good luck!">
+				</form>
+			</div>
+		</div>
 	</body>
-	<footer></footer>
+	<footer>
+		
+	</footer>
 </html>
