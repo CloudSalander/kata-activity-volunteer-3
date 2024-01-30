@@ -7,22 +7,26 @@
 		<title>Brownie deliverer</title>
 	</header>
 	<body>
-		<div class="container flex flex-col">
+		<div class="container flex flex-col flew-wrap items-center my-80">
 			<div id="main-title">
 				<h1>Activity Deliverer!</h1>
 			</div>
-			<div id="winner">
-				<?php if(isset($_GET['student']) && isset($_GET['activity']) ) { ?>
+			<?php if(hasParameters()) { ?>
+			<div id="winner" class="my-20">
 				<h1><?php echo $_GET['student']." farà ".$_GET['activity'];?> </h1>
-				<?php } ?>
 			</div>
-			<div id="form">
+			<?php } ?>
+			<div id="form" class="my-30">
 				<form action="brownie_deliverer.php" method="POST">
 					<select id="activity_selector" name="activity">
 						<option value="masterclass">Masterclass</option>
 						<option value="weekly shortcut">Shortcut</option>
 					</select>
-					<input class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" type="submit" value="Good luck!">
+					<?php
+						$button_msg = "Try again?"; 
+						if(!hasParameters()) $button_msg = "Good luck!"; 
+					?>
+					<input class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" type="submit" value="<?= $button_msg ?>">
 				</form>
 			</div>
 		</div>
@@ -31,3 +35,10 @@
 		
 	</footer>
 </html>
+<?php
+
+function hasParameters(): bool {
+	return isset($_GET['student']) && isset($_GET['activity']) && $_GET['student'] != "" && $_GET['activity'] != "";
+}
+
+?>

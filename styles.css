@@ -1,3 +1,16 @@
 body {
 	background: #FFBFF3;
 }
+
+#main-title h1 {
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 40px;
+	color: white;
+	text-transform: uppercase;
+}
+
+#winner {
+	font-family: monospace;
+	font-size: 24px;
+}
