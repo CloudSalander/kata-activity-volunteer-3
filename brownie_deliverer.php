@@ -12,11 +12,6 @@ function LoadStudents() : array {
 	return $students;
 }
 
-function showOptions(array $activities): void {
-	foreach($activities as $key=>$activity) {
-		echo ($key+1)." - ".$activity.PHP_EOL;
-	}
-}
 
 function checkOptionInput(int $activities_count,string $option): bool {
 	return is_numeric($option) && $option > 0 && $option <= $activities_count;
@@ -30,7 +25,6 @@ function checkActivity() {
 
 
 $students = LoadStudents();
-//showOptions($activities);
 
 $activity = checkActivity();
 
