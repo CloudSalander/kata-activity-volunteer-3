@@ -8,8 +8,8 @@ include('files/activities.php');
 
 function LoadStudents() : array {
 	$str = file_get_contents('./files/students.json');
-	$array = json_decode($str, true);
-	return $array['alumnes'];
+	$students = json_decode($str, true);
+	return $students;
 }
 
 function showOptions(array $activities): void {
@@ -36,9 +36,8 @@ $activity = checkActivity();
 
 if($activity) {
 	$student_index = array_rand($students);
-	$student_name = $students[$student_index]['nom'];
-	$student_surname = $students[$student_index]['cognom'];
-	echo "Li toca a ".$student_name." ".$student_surname." fer ".$activity." felicitats!!"; 
+	$student = $students[$student_index]['name']." ".$students[$student_index]['surname'];
+	header("Location: index.php?student=$student&activity=$activity");
 }
 
 ?>

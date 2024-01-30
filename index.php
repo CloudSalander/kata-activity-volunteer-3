@@ -7,9 +7,14 @@
 		<title>Brownie deliverer</title>
 	</header>
 	<body>
-		<div class="container flex my-20">
+		<div class="container flex flex-col">
 			<div id="main-title">
 				<h1>Activity Deliverer!</h1>
+			</div>
+			<div id="winner">
+				<?php if(isset($_GET['student']) && isset($_GET['activity']) ) { ?>
+				<h1><?php echo $_GET['student']." farà ".$_GET['activity'];?> </h1>
+				<?php } ?>
 			</div>
 			<div id="form">
 				<form action="brownie_deliverer.php" method="POST">
